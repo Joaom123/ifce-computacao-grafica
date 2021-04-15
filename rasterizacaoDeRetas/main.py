@@ -10,14 +10,17 @@ RESOLUCAO_25_25 = (25, 25)
 RESOLUCAO_50_50 = (50, 50)
 RESOLUCAO_150_150 = (150, 150)
 
+"""
+Definindo as retas padrões
+"""
 # Reta A
 PONTO_ORIGEM_A = (0, 0)
 PONTO_DESTINO_A = (1, 1)
 # Reta B
-PONTO_ORIGEM_B = (0.25, 0.25)
-PONTO_DESTINO_B = (0.75, 0.75)
+PONTO_ORIGEM_B = (0.2, 0.4)
+PONTO_DESTINO_B = (0.6, 0.7)
 # Reta C
-PONTO_ORIGEM_C = (0.3, 0.4)
+PONTO_ORIGEM_C = (0.3, 0.9)
 PONTO_DESTINO_C = (0.2, 0.3)
 
 
@@ -75,6 +78,9 @@ def rasterizacao_reta(
     lista_dos_pixels.append(produz_fragmento(x, y))
 
     if abs(delta_x) > abs(delta_y):
+        if x_origem > x_destino:
+            x = x_destino
+            x_origem, x_destino = x_destino, x_origem
         while x < x_destino:
             x = x + 1
             if x >= x_destino:
@@ -82,6 +88,9 @@ def rasterizacao_reta(
             y = coeficiente_angular * x + coeficiente_linear
             lista_dos_pixels.append(produz_fragmento(x, y))
     else:
+        if y_origem > y_destino:
+            y = y_destino
+            y_origem, y_destino = y_destino, y_origem
         while y < y_destino:
             y = y + 1
             if y >= y_destino:
@@ -109,18 +118,18 @@ def produz_matriz(array_rasterizacao: List[Tuple[float, float]], resolucao: Tupl
 
 def cria_imagem(ponto_origem, ponto_destino, resolucao, nome_da_imagem) -> None:
     """
-
+    Plota e salva a matriz gerada
     :param nome_da_imagem: nome da imagem a ser gerada pelo matplotlib
-    :param ponto_origem:
-    :param ponto_destino:
-    :param resolucao:
-    :return:
+    :param ponto_origem: Entre 0 e 1, representam o ponto de origem da reta
+    :param ponto_destino: Entre 0 e 1, representam o ponto de destino da resta
+    :param resolucao: Resolucao utilizada
+    :return: None
     """
     plt.figure()
     linha_reso_1 = rasterizacao_reta(ponto_origem, ponto_destino, resolucao)
     matriz = produz_matriz(linha_reso_1, resolucao)
     img = plt.imshow(matriz, cmap='Greys', origin='lower')
-    plt.savefig(nome_da_imagem)
+    plt.savefig("rasterizacaoDeRetas/"+nome_da_imagem)
     plt.show()
 
 
