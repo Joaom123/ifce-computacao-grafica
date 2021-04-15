@@ -100,14 +100,16 @@ def rasterizacao_reta(
     return lista_dos_pixels
 
 
-def produz_matriz(array_rasterizacao: List[Tuple[float, float]], resolucao: Tuple[int, int]) -> List[List[int]]:
+def produz_matriz(
+        array_rasterizacao: List[Tuple[float, float]],
+        resolucao: Tuple[int, int]) -> List[List[int]]:
     """
-
+    Cria uma matriz preenchida de zeros e aonde coloca 1 onde há a reta rasterizada.
     :param array_rasterizacao: array com as marcações de pixel da rasterização
     :param resolucao: resolução utilizada na rasterização
     :return: produz uma matrix com as marcações da resterização, a matriz tem o tamanho da resolução
     """
-    matriz = [[0 for _ in range(resolucao[0])] for _ in range(resolucao[1])]
+    matriz = [[0 for coluna in range(resolucao[0])] for linha in range(resolucao[1])]
 
     for pixel in array_rasterizacao:
         coluna = math.floor(pixel[1])
@@ -116,9 +118,13 @@ def produz_matriz(array_rasterizacao: List[Tuple[float, float]], resolucao: Tupl
     return matriz
 
 
-def cria_imagem(ponto_origem, ponto_destino, resolucao, nome_da_imagem) -> None:
+def cria_imagem(
+        ponto_origem: Tuple[float, float],
+        ponto_destino: Tuple[float, float],
+        resolucao: Tuple[int, int],
+        nome_da_imagem: str) -> None:
     """
-    Plota e salva a matriz gerada
+    Plota e salva a matriz gerada.
     :param nome_da_imagem: nome da imagem a ser gerada pelo matplotlib
     :param ponto_origem: Entre 0 e 1, representam o ponto de origem da reta
     :param ponto_destino: Entre 0 e 1, representam o ponto de destino da resta
@@ -126,27 +132,28 @@ def cria_imagem(ponto_origem, ponto_destino, resolucao, nome_da_imagem) -> None:
     :return: None
     """
     plt.figure()
-    linha_reso_1 = rasterizacao_reta(ponto_origem, ponto_destino, resolucao)
-    matriz = produz_matriz(linha_reso_1, resolucao)
+    plt.title(nome_da_imagem)
+    reta_rasterizada = rasterizacao_reta(ponto_origem, ponto_destino, resolucao)
+    matriz = produz_matriz(reta_rasterizada, resolucao)
     img = plt.imshow(matriz, cmap='Greys', origin='lower')
-    plt.savefig("rasterizacaoDeRetas/"+nome_da_imagem)
+    plt.savefig("rasterizacaoDeRetas/" + nome_da_imagem)
     plt.show()
 
 
 # Imagens geradas da rasterização da reta A
-cria_imagem(PONTO_ORIGEM_A, PONTO_DESTINO_A, RESOLUCAO_25_25, "Ponto A na resolução: 25x25")
-cria_imagem(PONTO_ORIGEM_A, PONTO_DESTINO_A, RESOLUCAO_50_50, "Ponto A na resolução: 50x50")
-cria_imagem(PONTO_ORIGEM_A, PONTO_DESTINO_A, RESOLUCAO_150_150, "Ponto A na resolução: 150x150")
+cria_imagem(PONTO_ORIGEM_A, PONTO_DESTINO_A, RESOLUCAO_25_25, "Reta A na resolução: 25x25")
+cria_imagem(PONTO_ORIGEM_A, PONTO_DESTINO_A, RESOLUCAO_50_50, "Reta A na resolução: 50x50")
+cria_imagem(PONTO_ORIGEM_A, PONTO_DESTINO_A, RESOLUCAO_150_150, "Reta A na resolução: 150x150")
 
 # Imagens geradas da rasterização da reta A
-cria_imagem(PONTO_ORIGEM_B, PONTO_DESTINO_B, RESOLUCAO_25_25, "Ponto B na resolução: 25x25")
-cria_imagem(PONTO_ORIGEM_B, PONTO_DESTINO_B, RESOLUCAO_50_50, "Ponto B na resolução: 50x50")
-cria_imagem(PONTO_ORIGEM_B, PONTO_DESTINO_B, RESOLUCAO_150_150, "Ponto B na resolução: 150x150")
+cria_imagem(PONTO_ORIGEM_B, PONTO_DESTINO_B, RESOLUCAO_25_25, "Reta B na resolução: 25x25")
+cria_imagem(PONTO_ORIGEM_B, PONTO_DESTINO_B, RESOLUCAO_50_50, "Reta B na resolução: 50x50")
+cria_imagem(PONTO_ORIGEM_B, PONTO_DESTINO_B, RESOLUCAO_150_150, "Reta B na resolução: 150x150")
 
 # Imagens geradas da rasterização da reta A
-cria_imagem(PONTO_ORIGEM_C, PONTO_DESTINO_C, RESOLUCAO_25_25, "Ponto C na resolução: 25x25")
-cria_imagem(PONTO_ORIGEM_C, PONTO_DESTINO_C, RESOLUCAO_50_50, "Ponto C na resolução: 50x50")
-cria_imagem(PONTO_ORIGEM_C, PONTO_DESTINO_C, RESOLUCAO_150_150, "Ponto C na resolução: 150x150")
+cria_imagem(PONTO_ORIGEM_C, PONTO_DESTINO_C, RESOLUCAO_25_25, "Reta C na resolução: 25x25")
+cria_imagem(PONTO_ORIGEM_C, PONTO_DESTINO_C, RESOLUCAO_50_50, "Reta C na resolução: 50x50")
+cria_imagem(PONTO_ORIGEM_C, PONTO_DESTINO_C, RESOLUCAO_150_150, "Reta C na resolução: 150x150")
 
 # Gerando reta vertical e horizontal
 cria_imagem((0.25, 0.25), (0.25, 0.5), RESOLUCAO_50_50, "Reta vertical")
