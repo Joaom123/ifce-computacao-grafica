@@ -5,25 +5,40 @@ from typing import List, Tuple
 """
 Definindo as resoluções padrões
 """
-RESOLUCAO_TESTE = (9, 9)
-RESOLUCAO_25_25 = (25, 25)
-RESOLUCAO_50_50 = (50, 50)
-RESOLUCAO_150_150 = (150, 150)
+RESOLUCAO_40_30 = (40, 30)
+RESOLUCAO_80_60 = (80, 60)
+RESOLUCAO_QVGA = (320, 240)
 
 """
 Definindo as retas padrões
 """
 # Reta A
-PONTO_ORIGEM_A = (0, 0)
-PONTO_DESTINO_A = (1, 1)
+PONTO_ORIGEM_A = (0.2, 0.3)
+PONTO_DESTINO_A = (0.9, 0.5)
 
 # Reta B
-PONTO_ORIGEM_B = (0.2, 0.4)
-PONTO_DESTINO_B = (0.6, 0.7)
+PONTO_ORIGEM_B = (0.3, 0.2)
+PONTO_DESTINO_B = (0.5, 0.9)
 
 # Reta C
 PONTO_ORIGEM_C = (0.3, 0.9)
 PONTO_DESTINO_C = (0.2, 0.3)
+
+# Reta D - Horizontal
+PONTO_ORIGEM_D = (0.25, 0.25)
+PONTO_DESTINO_D = (0.75, 0.25)
+
+# Reta E - Vertical
+PONTO_ORIGEM_E = (0.25, 0.25)
+PONTO_DESTINO_E = (0.25, 0.75)
+
+# Reta F - Quase Horizontal
+PONTO_ORIGEM_F = (0.25, 0.25)
+PONTO_DESTINO_F = (0.75, 0.24)
+
+# Reta G - Quase Vertical
+PONTO_ORIGEM_G = (0.25, 0.25)
+PONTO_DESTINO_G = (0.24, 0.75)
 
 
 def produz_fragmento(x: float, y: float) -> (float, float):
@@ -70,9 +85,11 @@ def rasterizacao_reta(
     delta_x = x_destino - x_origem
     delta_y = y_destino - y_origem
 
-    # Considerando a equação da reta como y = a*x + b
-    coeficiente_angular = 0 if delta_x == 0 else delta_y / delta_x
-    coeficiente_linear = y_destino - coeficiente_angular * x_destino
+    # Considerando a equação da reta como y = a*x + b, quando delta_x for 0, o coeficiente angular
+    # torna-se indefinido
+    if delta_x != 0:
+        coeficiente_angular = delta_y / delta_x
+        coeficiente_linear = y_destino - coeficiente_angular * x_destino
 
     # Guarda os pixels que devem ser preenchidos
     pixels = list()
@@ -106,7 +123,10 @@ def rasterizacao_reta(
             y = y + 1
             if y >= y_destino:
                 return pixels
-            x = x if coeficiente_angular == 0 else (y - coeficiente_linear) / coeficiente_angular
+
+            # Se a reta for vertical, x não é atualizado.
+            if delta_x != 0:
+                x = (y - coeficiente_linear) / coeficiente_angular
             pixels.append(produz_fragmento(x, y))
     return pixels
 
@@ -148,25 +168,41 @@ def cria_imagem(
     plt.figure()
     plt.title(nome_da_imagem)    
     img = plt.imshow(matriz, cmap='Greys', origin='lower')
-    plt.savefig("rasterizacaoDeRetas/" + nome_da_imagem)
+    plt.savefig("rasterizacaoDeRetas" + nome_da_imagem)
     plt.show()
 
 
 # Imagens geradas da rasterização da reta A
-cria_imagem(PONTO_ORIGEM_A, PONTO_DESTINO_A, RESOLUCAO_25_25, "Reta A na resolução: 25x25")
-cria_imagem(PONTO_ORIGEM_A, PONTO_DESTINO_A, RESOLUCAO_50_50, "Reta A na resolução: 50x50")
-cria_imagem(PONTO_ORIGEM_A, PONTO_DESTINO_A, RESOLUCAO_150_150, "Reta A na resolução: 150x150")
+cria_imagem(PONTO_ORIGEM_A, PONTO_DESTINO_A, RESOLUCAO_40_30, "Reta A na resolução: 40x30")
+cria_imagem(PONTO_ORIGEM_A, PONTO_DESTINO_A, RESOLUCAO_80_60, "Reta A na resolução: 80x60")
+cria_imagem(PONTO_ORIGEM_A, PONTO_DESTINO_A, RESOLUCAO_QVGA, "Reta A na resolução: 320x240 (QVGA)")
 
-# Imagens geradas da rasterização da reta A
-cria_imagem(PONTO_ORIGEM_B, PONTO_DESTINO_B, RESOLUCAO_25_25, "Reta B na resolução: 25x25")
-cria_imagem(PONTO_ORIGEM_B, PONTO_DESTINO_B, RESOLUCAO_50_50, "Reta B na resolução: 50x50")
-cria_imagem(PONTO_ORIGEM_B, PONTO_DESTINO_B, RESOLUCAO_150_150, "Reta B na resolução: 150x150")
+# Imagens geradas da rasterização da reta B
+cria_imagem(PONTO_ORIGEM_B, PONTO_DESTINO_B, RESOLUCAO_40_30, "Reta B na resolução: 40x30")
+cria_imagem(PONTO_ORIGEM_B, PONTO_DESTINO_B, RESOLUCAO_80_60, "Reta B na resolução: 80x60")
+cria_imagem(PONTO_ORIGEM_B, PONTO_DESTINO_B, RESOLUCAO_QVGA, "Reta B na resolução: 320x240 (QVGA)")
 
-# Imagens geradas da rasterização da reta A
-cria_imagem(PONTO_ORIGEM_C, PONTO_DESTINO_C, RESOLUCAO_25_25, "Reta C na resolução: 25x25")
-cria_imagem(PONTO_ORIGEM_C, PONTO_DESTINO_C, RESOLUCAO_50_50, "Reta C na resolução: 50x50")
-cria_imagem(PONTO_ORIGEM_C, PONTO_DESTINO_C, RESOLUCAO_150_150, "Reta C na resolução: 150x150")
+# Imagens geradas da rasterização da reta C
+cria_imagem(PONTO_ORIGEM_C, PONTO_DESTINO_C, RESOLUCAO_40_30, "Reta C na resolução: 40x30")
+cria_imagem(PONTO_ORIGEM_C, PONTO_DESTINO_C, RESOLUCAO_80_60, "Reta C na resolução: 80x60")
+cria_imagem(PONTO_ORIGEM_C, PONTO_DESTINO_C, RESOLUCAO_QVGA, "Reta C na resolução: 320x240 (QVGA)")
 
-# Gerando reta vertical e horizontal
-cria_imagem((0.25, 0.25), (0.25, 0.5), RESOLUCAO_50_50, "Reta vertical")
-cria_imagem((0.25, 0.25), (0.5, 0.25), RESOLUCAO_50_50, "Reta horizontal")
+# Gerando Reta D - Horizontal
+cria_imagem(PONTO_ORIGEM_D, PONTO_DESTINO_D, RESOLUCAO_40_30, "Reta D na resolução: 40x30")
+cria_imagem(PONTO_ORIGEM_D, PONTO_DESTINO_D, RESOLUCAO_80_60, "Reta D na resolução: 80x60")
+cria_imagem(PONTO_ORIGEM_D, PONTO_DESTINO_D, RESOLUCAO_QVGA, "Reta D na resolução: 320x240 (QVGA)")
+
+# Gerando Reta E - Vertical
+cria_imagem(PONTO_ORIGEM_E, PONTO_DESTINO_E, RESOLUCAO_40_30, "Reta E na resolução: 40x30")
+cria_imagem(PONTO_ORIGEM_E, PONTO_DESTINO_E, RESOLUCAO_80_60, "Reta E na resolução: 80x60")
+cria_imagem(PONTO_ORIGEM_E, PONTO_DESTINO_E, RESOLUCAO_QVGA, "Reta E Na resolução: 320x240 (QVGA)")
+
+# Gerando Reta F
+cria_imagem(PONTO_ORIGEM_F, PONTO_DESTINO_F, RESOLUCAO_40_30, "Reta F na resolução: 40x30")
+cria_imagem(PONTO_ORIGEM_F, PONTO_DESTINO_F, RESOLUCAO_80_60, "Reta F na resolução: 80x60")
+cria_imagem(PONTO_ORIGEM_F, PONTO_DESTINO_F, RESOLUCAO_QVGA, "Reta F Na resolução: 320x240 (QVGA)")
+
+# Gerando Reta G
+cria_imagem(PONTO_ORIGEM_G, PONTO_DESTINO_G, RESOLUCAO_40_30, "Reta G na resolução: 40x30")
+cria_imagem(PONTO_ORIGEM_G, PONTO_DESTINO_G, RESOLUCAO_80_60, "Reta G na resolução: 80x60")
+cria_imagem(PONTO_ORIGEM_G, PONTO_DESTINO_G, RESOLUCAO_QVGA, "Reta G Na resolução: 320x240 (QVGA)")
