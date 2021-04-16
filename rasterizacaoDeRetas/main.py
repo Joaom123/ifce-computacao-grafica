@@ -74,19 +74,22 @@ def rasterizacao_reta(
     x_destino_normalizado = ponto_destino[0]
     y_destino_normalizado = ponto_destino[1]
 
-    # Transformar os pontos da coordenada normalizada na devida resolução
+    # Transformar os pontos na coordenada normalizada na devida resolução
     x_origem = x_origem_normalizado * numero_de_colunas
     y_origem = y_origem_normalizado * numero_de_linhas
 
     x_destino = x_destino_normalizado * numero_de_colunas
     y_destino = y_destino_normalizado * numero_de_linhas
 
-    # calculo da variação no eixo x e y
+    # Calculo da variação no eixo x e y
     delta_x = x_destino - x_origem
     delta_y = y_destino - y_origem
 
     # Considerando a equação da reta como y = a*x + b, quando delta_x for 0, o coeficiente angular
     # torna-se indefinido
+    coeficiente_angular = None
+    coeficiente_linear = None
+
     if delta_x != 0:
         coeficiente_angular = delta_y / delta_x
         coeficiente_linear = y_destino - coeficiente_angular * x_destino
@@ -94,6 +97,7 @@ def rasterizacao_reta(
     # Guarda os pixels que devem ser preenchidos
     pixels = list()
 
+    # x e y serão usados durante a iteração
     x = x_origem
     y = y_origem
 
@@ -123,8 +127,7 @@ def rasterizacao_reta(
             y = y + 1
             if y >= y_destino:
                 return pixels
-
-            # Se a reta for vertical, x não é atualizado.
+            # x é atualizado apenas quando delta_x difere de 0
             if delta_x != 0:
                 x = (y - coeficiente_linear) / coeficiente_angular
             pixels.append(produz_fragmento(x, y))
@@ -138,13 +141,14 @@ def produz_matriz(
     Cria uma matriz preenchida de zeros e aonde coloca 1 onde há a reta rasterizada.
     :param array_rasterizacao: array com as marcações de pixel da rasterização
     :param resolucao: resolução utilizada na rasterização
-    :return: produz uma matrix com as marcações da resterização, a matriz tem o tamanho da resolução
+    :return: produz uma matrix com as marcações da reta rasterizada, a matriz tem o tamanho da resolução
     """
     matriz = [[0 for coluna in range(resolucao[0])] for linha in range(resolucao[1])]
 
+    # Devemos marcar na matriz os pontos existentes no array rasterização
     for pixel in array_rasterizacao:
-        coluna = math.floor(pixel[1])
         linha = math.floor(pixel[0])
+        coluna = math.floor(pixel[1])
         matriz[coluna][linha] = 1
     return matriz
 
@@ -155,11 +159,11 @@ def cria_imagem(
         resolucao: Tuple[int, int],
         nome_da_imagem: str) -> None:
     """
-    Plota e salva a matriz gerada.
-    :param nome_da_imagem: nome da imagem a ser gerada pelo matplotlib
+    Plota e grava a matriz gerada.
     :param ponto_origem: Entre 0 e 1, representam o ponto de origem da reta
     :param ponto_destino: Entre 0 e 1, representam o ponto de destino da resta
-    :param resolucao: Resolucao utilizada
+    :param resolucao: Resolução utilizada
+    :param nome_da_imagem: nome da imagem a ser gerada pelo matplotlib
     :return: None
     """
     reta_rasterizada = rasterizacao_reta(ponto_origem, ponto_destino, resolucao)
@@ -168,7 +172,7 @@ def cria_imagem(
     plt.figure()
     plt.title(nome_da_imagem)    
     img = plt.imshow(matriz, cmap='Greys', origin='lower')
-    plt.savefig("rasterizacaoDeRetas" + nome_da_imagem)
+    plt.savefig(nome_da_imagem)
     plt.show()
 
 
