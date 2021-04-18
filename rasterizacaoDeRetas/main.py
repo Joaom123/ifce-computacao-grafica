@@ -52,6 +52,10 @@ PONTO_DESTINO_I = (1, 1)
 PONTO_ORIGEM_J = (0, 1)
 PONTO_DESTINO_J = (1, 0)
 
+# Reta K - Diagonal primária
+PONTO_ORIGEM_K = (0, 0)
+PONTO_DESTINO_K = (1, 1)
+
 
 def produz_fragmento(x: float, y: float) -> (float, float):
     """
@@ -117,10 +121,12 @@ def rasterizacao_reta(
     # o algoritmo irá iterar x até passar do x_destino, y é calculado pela equação da reta.
     # Caso contrário, a iteração ocorre no eixo y.
     if abs(delta_x) > abs(delta_y):
+        # Caso a variação no eixo x seja negativa, não percorreríamos o eixo x no sentido positivo.
+        # Portanto, inverte-se os pontos. Não há alteração no algoritmo pois a reta permanece a mesma.
         if delta_x < 0:
             x, y = x_destino, y_destino
             x_origem, x_destino = x_destino, x_origem
-            y_origem, y_destino = y_destino, y_origem
+            # y_origem, y_destino = y_destino, y_origem
         while x < x_destino:
             # tratamento da borda
             if x == numero_de_colunas:
@@ -134,9 +140,11 @@ def rasterizacao_reta(
             x = x + 1
             y = coeficiente_angular * x + coeficiente_linear
     else:
+        # Caso a variação no eixo y seja negativa, não percorreríamos o eixo y no sentido positivo.
+        # Portanto, inverte-se os pontos. Não há alteração no algoritmo pois a reta permanece a mesma.
         if delta_y < 0:
             x, y = x_destino, y_destino
-            x_origem, x_destino = x_destino, x_origem
+            # x_origem, x_destino = x_destino, x_origem
             y_origem, y_destino = y_destino, y_origem
 
         if coeficiente_angular is None:
@@ -210,7 +218,9 @@ def cria_imagem(
     plt.savefig(nome_da_imagem)
     plt.show()
 
-
+"""
+Rodando todas as retas em todas as resoluções
+"""
 # Imagens geradas da rasterização da reta A
 cria_imagem(PONTO_ORIGEM_A, PONTO_DESTINO_A, RESOLUCAO_40_30, "Reta A na resolução: 40x30")
 cria_imagem(PONTO_ORIGEM_A, PONTO_DESTINO_A, RESOLUCAO_80_60, "Reta A na resolução: 80x60")
@@ -246,11 +256,11 @@ cria_imagem(PONTO_ORIGEM_G, PONTO_DESTINO_G, RESOLUCAO_40_30, "Reta G na resolu�
 cria_imagem(PONTO_ORIGEM_G, PONTO_DESTINO_G, RESOLUCAO_80_60, "Reta G na resolução: 80x60")
 cria_imagem(PONTO_ORIGEM_G, PONTO_DESTINO_G, RESOLUCAO_QVGA, "Reta G Na resolução: 320x240 (QVGA)")
 
-# Gerando Reta H
+# # Gerando Reta H
 cria_imagem(PONTO_ORIGEM_H, PONTO_DESTINO_H, RESOLUCAO_40_30, "Reta H na resolução: 40x30")
 cria_imagem(PONTO_ORIGEM_H, PONTO_DESTINO_H, RESOLUCAO_80_60, "Reta H na resolução: 80x60")
 
-# Gerando Reta I
+# # Gerando Reta I
 cria_imagem(PONTO_ORIGEM_I, PONTO_DESTINO_I, RESOLUCAO_40_30, "Reta I na resolução: 40x30")
 cria_imagem(PONTO_ORIGEM_I, PONTO_DESTINO_I, RESOLUCAO_80_60, "Reta I na resolução: 80x60")
 
@@ -258,3 +268,12 @@ cria_imagem(PONTO_ORIGEM_I, PONTO_DESTINO_I, RESOLUCAO_80_60, "Reta I na resolu�
 cria_imagem(PONTO_ORIGEM_J, PONTO_DESTINO_J, RESOLUCAO_40_30, "Reta J na resolução: 40x30")
 cria_imagem(PONTO_ORIGEM_J, PONTO_DESTINO_J, RESOLUCAO_80_60, "Reta J na resolução: 80x60")
 cria_imagem(PONTO_ORIGEM_J, PONTO_DESTINO_J, RESOLUCAO_QVGA, "Reta J Na resolução: 320x240 (QVGA)")
+
+# Gerando Reta K
+cria_imagem(PONTO_ORIGEM_K, PONTO_DESTINO_K, RESOLUCAO_40_30, "Reta K na resolução: 40x30")
+cria_imagem(PONTO_ORIGEM_K, PONTO_DESTINO_K, RESOLUCAO_80_60, "Reta K na resolução: 80x60")
+cria_imagem(PONTO_ORIGEM_K, PONTO_DESTINO_K, RESOLUCAO_QVGA, "Reta K Na resolução: 320x240 (QVGA)")
+
+# # Gerando Reta L
+# cria_imagem(PONTO_ORIGEM_L, PONTO_DESTINO_L, RESOLUCAO_40_30, "Reta L na resolução: 40x30")
+# cria_imagem(PONTO_ORIGEM_L, PONTO_DESTINO_L, RESOLUCAO_80_60, "Reta L na resolução: 80x60")
