@@ -274,6 +274,10 @@ cria_imagem(PONTO_ORIGEM_K, PONTO_DESTINO_K, RESOLUCAO_40_30, "Reta K na resolu�
 cria_imagem(PONTO_ORIGEM_K, PONTO_DESTINO_K, RESOLUCAO_80_60, "Reta K na resolução: 80x60")
 cria_imagem(PONTO_ORIGEM_K, PONTO_DESTINO_K, RESOLUCAO_QVGA, "Reta K Na resolução: 320x240 (QVGA)")
 
-# # Gerando Reta L
-# cria_imagem(PONTO_ORIGEM_L, PONTO_DESTINO_L, RESOLUCAO_40_30, "Reta L na resolução: 40x30")
-# cria_imagem(PONTO_ORIGEM_L, PONTO_DESTINO_L, RESOLUCAO_80_60, "Reta L na resolução: 80x60")
+# Teste
+cria_imagem(
+    ponto_origem=(0, 0),
+    ponto_destino=(1, 1/3),
+    resolucao=(9, 9),
+    nome_da_imagem="Teste"
+)
