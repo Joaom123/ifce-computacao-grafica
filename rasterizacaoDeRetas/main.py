@@ -218,66 +218,67 @@ def cria_imagem(
     plt.savefig(nome_da_imagem)
     plt.show()
 
+
 """
 Rodando todas as retas em todas as resoluções
 """
-# Imagens geradas da rasterização da reta A
-cria_imagem(PONTO_ORIGEM_A, PONTO_DESTINO_A, RESOLUCAO_40_30, "Reta A na resolução: 40x30")
-cria_imagem(PONTO_ORIGEM_A, PONTO_DESTINO_A, RESOLUCAO_80_60, "Reta A na resolução: 80x60")
-cria_imagem(PONTO_ORIGEM_A, PONTO_DESTINO_A, RESOLUCAO_QVGA, "Reta A na resolução: 320x240 (QVGA)")
-
-# Imagens geradas da rasterização da reta B
-cria_imagem(PONTO_ORIGEM_B, PONTO_DESTINO_B, RESOLUCAO_40_30, "Reta B na resolução: 40x30")
-cria_imagem(PONTO_ORIGEM_B, PONTO_DESTINO_B, RESOLUCAO_80_60, "Reta B na resolução: 80x60")
-cria_imagem(PONTO_ORIGEM_B, PONTO_DESTINO_B, RESOLUCAO_QVGA, "Reta B na resolução: 320x240 (QVGA)")
-
-# Imagens geradas da rasterização da reta C
-cria_imagem(PONTO_ORIGEM_C, PONTO_DESTINO_C, RESOLUCAO_40_30, "Reta C na resolução: 40x30")
-cria_imagem(PONTO_ORIGEM_C, PONTO_DESTINO_C, RESOLUCAO_80_60, "Reta C na resolução: 80x60")
-cria_imagem(PONTO_ORIGEM_C, PONTO_DESTINO_C, RESOLUCAO_QVGA, "Reta C na resolução: 320x240 (QVGA)")
-
-# Gerando Reta D - Horizontal
-cria_imagem(PONTO_ORIGEM_D, PONTO_DESTINO_D, RESOLUCAO_40_30, "Reta D na resolução: 40x30")
-cria_imagem(PONTO_ORIGEM_D, PONTO_DESTINO_D, RESOLUCAO_80_60, "Reta D na resolução: 80x60")
-cria_imagem(PONTO_ORIGEM_D, PONTO_DESTINO_D, RESOLUCAO_QVGA, "Reta D na resolução: 320x240 (QVGA)")
-
-# Gerando Reta E - Vertical
-cria_imagem(PONTO_ORIGEM_E, PONTO_DESTINO_E, RESOLUCAO_40_30, "Reta E na resolução: 40x30")
-cria_imagem(PONTO_ORIGEM_E, PONTO_DESTINO_E, RESOLUCAO_80_60, "Reta E na resolução: 80x60")
-cria_imagem(PONTO_ORIGEM_E, PONTO_DESTINO_E, RESOLUCAO_QVGA, "Reta E Na resolução: 320x240 (QVGA)")
-
-# Gerando Reta F
-cria_imagem(PONTO_ORIGEM_F, PONTO_DESTINO_F, RESOLUCAO_40_30, "Reta F na resolução: 40x30")
-cria_imagem(PONTO_ORIGEM_F, PONTO_DESTINO_F, RESOLUCAO_80_60, "Reta F na resolução: 80x60")
-cria_imagem(PONTO_ORIGEM_F, PONTO_DESTINO_F, RESOLUCAO_QVGA, "Reta F Na resolução: 320x240 (QVGA)")
-
-# Gerando Reta G
-cria_imagem(PONTO_ORIGEM_G, PONTO_DESTINO_G, RESOLUCAO_40_30, "Reta G na resolução: 40x30")
-cria_imagem(PONTO_ORIGEM_G, PONTO_DESTINO_G, RESOLUCAO_80_60, "Reta G na resolução: 80x60")
-cria_imagem(PONTO_ORIGEM_G, PONTO_DESTINO_G, RESOLUCAO_QVGA, "Reta G Na resolução: 320x240 (QVGA)")
-
-# # Gerando Reta H
-cria_imagem(PONTO_ORIGEM_H, PONTO_DESTINO_H, RESOLUCAO_40_30, "Reta H na resolução: 40x30")
-cria_imagem(PONTO_ORIGEM_H, PONTO_DESTINO_H, RESOLUCAO_80_60, "Reta H na resolução: 80x60")
-
-# # Gerando Reta I
-cria_imagem(PONTO_ORIGEM_I, PONTO_DESTINO_I, RESOLUCAO_40_30, "Reta I na resolução: 40x30")
-cria_imagem(PONTO_ORIGEM_I, PONTO_DESTINO_I, RESOLUCAO_80_60, "Reta I na resolução: 80x60")
-
-# Gerando Reta J
-cria_imagem(PONTO_ORIGEM_J, PONTO_DESTINO_J, RESOLUCAO_40_30, "Reta J na resolução: 40x30")
-cria_imagem(PONTO_ORIGEM_J, PONTO_DESTINO_J, RESOLUCAO_80_60, "Reta J na resolução: 80x60")
-cria_imagem(PONTO_ORIGEM_J, PONTO_DESTINO_J, RESOLUCAO_QVGA, "Reta J Na resolução: 320x240 (QVGA)")
-
-# Gerando Reta K
-cria_imagem(PONTO_ORIGEM_K, PONTO_DESTINO_K, RESOLUCAO_40_30, "Reta K na resolução: 40x30")
-cria_imagem(PONTO_ORIGEM_K, PONTO_DESTINO_K, RESOLUCAO_80_60, "Reta K na resolução: 80x60")
-cria_imagem(PONTO_ORIGEM_K, PONTO_DESTINO_K, RESOLUCAO_QVGA, "Reta K Na resolução: 320x240 (QVGA)")
+# # Imagens geradas da rasterização da reta A
+# cria_imagem(PONTO_ORIGEM_A, PONTO_DESTINO_A, RESOLUCAO_40_30, "Reta A na resolução: 40x30")
+# cria_imagem(PONTO_ORIGEM_A, PONTO_DESTINO_A, RESOLUCAO_80_60, "Reta A na resolução: 80x60")
+# cria_imagem(PONTO_ORIGEM_A, PONTO_DESTINO_A, RESOLUCAO_QVGA, "Reta A na resolução: 320x240 (QVGA)")
+#
+# # Imagens geradas da rasterização da reta B
+# cria_imagem(PONTO_ORIGEM_B, PONTO_DESTINO_B, RESOLUCAO_40_30, "Reta B na resolução: 40x30")
+# cria_imagem(PONTO_ORIGEM_B, PONTO_DESTINO_B, RESOLUCAO_80_60, "Reta B na resolução: 80x60")
+# cria_imagem(PONTO_ORIGEM_B, PONTO_DESTINO_B, RESOLUCAO_QVGA, "Reta B na resolução: 320x240 (QVGA)")
+#
+# # Imagens geradas da rasterização da reta C
+# cria_imagem(PONTO_ORIGEM_C, PONTO_DESTINO_C, RESOLUCAO_40_30, "Reta C na resolução: 40x30")
+# cria_imagem(PONTO_ORIGEM_C, PONTO_DESTINO_C, RESOLUCAO_80_60, "Reta C na resolução: 80x60")
+# cria_imagem(PONTO_ORIGEM_C, PONTO_DESTINO_C, RESOLUCAO_QVGA, "Reta C na resolução: 320x240 (QVGA)")
+#
+# # Gerando Reta D - Horizontal
+# cria_imagem(PONTO_ORIGEM_D, PONTO_DESTINO_D, RESOLUCAO_40_30, "Reta D na resolução: 40x30")
+# cria_imagem(PONTO_ORIGEM_D, PONTO_DESTINO_D, RESOLUCAO_80_60, "Reta D na resolução: 80x60")
+# cria_imagem(PONTO_ORIGEM_D, PONTO_DESTINO_D, RESOLUCAO_QVGA, "Reta D na resolução: 320x240 (QVGA)")
+#
+# # Gerando Reta E - Vertical
+# cria_imagem(PONTO_ORIGEM_E, PONTO_DESTINO_E, RESOLUCAO_40_30, "Reta E na resolução: 40x30")
+# cria_imagem(PONTO_ORIGEM_E, PONTO_DESTINO_E, RESOLUCAO_80_60, "Reta E na resolução: 80x60")
+# cria_imagem(PONTO_ORIGEM_E, PONTO_DESTINO_E, RESOLUCAO_QVGA, "Reta E Na resolução: 320x240 (QVGA)")
+#
+# # Gerando Reta F
+# cria_imagem(PONTO_ORIGEM_F, PONTO_DESTINO_F, RESOLUCAO_40_30, "Reta F na resolução: 40x30")
+# cria_imagem(PONTO_ORIGEM_F, PONTO_DESTINO_F, RESOLUCAO_80_60, "Reta F na resolução: 80x60")
+# cria_imagem(PONTO_ORIGEM_F, PONTO_DESTINO_F, RESOLUCAO_QVGA, "Reta F Na resolução: 320x240 (QVGA)")
+#
+# # Gerando Reta G
+# cria_imagem(PONTO_ORIGEM_G, PONTO_DESTINO_G, RESOLUCAO_40_30, "Reta G na resolução: 40x30")
+# cria_imagem(PONTO_ORIGEM_G, PONTO_DESTINO_G, RESOLUCAO_80_60, "Reta G na resolução: 80x60")
+# cria_imagem(PONTO_ORIGEM_G, PONTO_DESTINO_G, RESOLUCAO_QVGA, "Reta G Na resolução: 320x240 (QVGA)")
+#
+# # # Gerando Reta H
+# cria_imagem(PONTO_ORIGEM_H, PONTO_DESTINO_H, RESOLUCAO_40_30, "Reta H na resolução: 40x30")
+# cria_imagem(PONTO_ORIGEM_H, PONTO_DESTINO_H, RESOLUCAO_80_60, "Reta H na resolução: 80x60")
+#
+# # # Gerando Reta I
+# cria_imagem(PONTO_ORIGEM_I, PONTO_DESTINO_I, RESOLUCAO_40_30, "Reta I na resolução: 40x30")
+# cria_imagem(PONTO_ORIGEM_I, PONTO_DESTINO_I, RESOLUCAO_80_60, "Reta I na resolução: 80x60")
+#
+# # Gerando Reta J
+# cria_imagem(PONTO_ORIGEM_J, PONTO_DESTINO_J, RESOLUCAO_40_30, "Reta J na resolução: 40x30")
+# cria_imagem(PONTO_ORIGEM_J, PONTO_DESTINO_J, RESOLUCAO_80_60, "Reta J na resolução: 80x60")
+# cria_imagem(PONTO_ORIGEM_J, PONTO_DESTINO_J, RESOLUCAO_QVGA, "Reta J Na resolução: 320x240 (QVGA)")
+#
+# # Gerando Reta K
+# cria_imagem(PONTO_ORIGEM_K, PONTO_DESTINO_K, RESOLUCAO_40_30, "Reta K na resolução: 40x30")
+# cria_imagem(PONTO_ORIGEM_K, PONTO_DESTINO_K, RESOLUCAO_80_60, "Reta K na resolução: 80x60")
+# cria_imagem(PONTO_ORIGEM_K, PONTO_DESTINO_K, RESOLUCAO_QVGA, "Reta K Na resolução: 320x240 (QVGA)")
 
 # Teste
 cria_imagem(
     ponto_origem=(0, 0),
-    ponto_destino=(1, 1/3),
-    resolucao=(9, 9),
+    ponto_destino=(1, 1 / 3),
+    resolucao=(18, 18),
     nome_da_imagem="Teste"
 )
