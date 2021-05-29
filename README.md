@@ -2,3 +2,4 @@
 
 ## Conteúdo
 * Rasterização de retas 
+* Cisalhamento 
