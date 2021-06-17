@@ -10,4 +10,3 @@
 # sistema de coordenadas da câmera.
 #
 # c. Apresente os diversos sólidos neste sistema de coordenadas em 3D.
-
