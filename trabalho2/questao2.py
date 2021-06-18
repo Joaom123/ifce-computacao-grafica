@@ -14,28 +14,30 @@ sejam localizados respeitando tais limites.
 
 c. Apresente os diversos sólidos neste sistema de coordenadas em 3D.
 """
-import matplotlib.pyplot as plt
-import numpy
-
 from trabalho2.Cubo import Cubo
 from trabalho2.Paralelepipedo import Paralelepipedo
+from trabalho2.PiramideBaseQuadrada import PiramideBaseQuadrada
+from trabalho2.PlotaSolido import plota_solidos
+from trabalho2.TroncoPiramide import TroncoPiramide
 
-fig = plt.figure(figsize=(10, 10))
-ax = fig.add_subplot(111, projection='3d')
 
 cubo = Cubo()
-cubo.adiciona_matriz(10)
+cubo.adiciona_nos_eixos(10, 10, 10)
+
+piramideBaseQuadrada = PiramideBaseQuadrada()
+piramideBaseQuadrada.adiciona_nos_eixos(-10, 10, 0)
 
 paralelepipedo = Paralelepipedo()
+paralelepipedo.adiciona_nos_eixos(10, -10, 10)
 
-for vertice in cubo.converte_vertices_para_matriz():
-    ax.scatter(vertice[0], vertice[1], vertice[2])
 
-for vertice in paralelepipedo.converte_vertices_para_matriz():
-    ax.scatter(vertice[0], vertice[1], vertice[2])
+troncoPiramide = TroncoPiramide()
+troncoPiramide.adiciona_nos_eixos(-10, -10, -10)
 
-ax.set_xlim(-20, 20)
-ax.set_ylim(-20, 20)
-ax.set_zlim(-20, 20)
+solidos = list()
+solidos.append(cubo)
+solidos.append(paralelepipedo)
+solidos.append(piramideBaseQuadrada)
+solidos.append(troncoPiramide)
 
-plt.show()
+plota_solidos(solidos, titulo="cena3D")
