@@ -39,5 +39,5 @@ class TroncoPiramide(Solido):
     com altura de 2.5.
     """
 
-    def __init__(self):
-        super().__init__(constroi_vertices(), constroi_arestas())
+    def __init__(self, titulo: str = "Tronco Piramide"):
+        super().__init__(constroi_vertices(), constroi_arestas(), titulo)

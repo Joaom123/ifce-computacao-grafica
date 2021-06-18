@@ -1,5 +1,6 @@
 from dataclasses import dataclass, field
 from typing import List
+
 import numpy as np
 
 
@@ -7,10 +8,12 @@ import numpy as np
 class Solido:
     vertices: dict = field(default_factory=dict)
     arestas: dict = field(default_factory=dict)
+    titulo: str = ""
 
-    def __init__(self, vertices: dict, arestas: dict):
+    def __init__(self, vertices: dict, arestas: dict, titulo: str):
         self.vertices = vertices
         self.arestas = arestas
+        self.titulo = titulo
 
     def converte_vertices_para_matriz(self):
         return np.array(list(self.vertices.values()))

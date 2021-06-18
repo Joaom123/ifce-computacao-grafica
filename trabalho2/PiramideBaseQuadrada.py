@@ -33,5 +33,5 @@ class PiramideBaseQuadrada(Solido):
     aresta do quadrado faça ângulo de 45 graus com o eixo x
     """
 
-    def __init__(self):
-        super().__init__(constroi_vertices(), constroi_arestas())
+    def __init__(self, titulo: str = "Piramide Base Quadrada"):
+        super().__init__(constroi_vertices(), constroi_arestas(), titulo)
