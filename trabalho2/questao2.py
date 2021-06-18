@@ -20,19 +20,17 @@ from trabalho2.PiramideBaseQuadrada import PiramideBaseQuadrada
 from trabalho2.PlotaSolido import plota_solidos
 from trabalho2.TroncoPiramide import TroncoPiramide
 
-
 cubo = Cubo()
-cubo.adiciona_nos_eixos(10, 10, 10)
+cubo.adiciona_nos_eixos(10, 10, 10)  # Octante I (+, +, +)
 
 piramideBaseQuadrada = PiramideBaseQuadrada()
-piramideBaseQuadrada.adiciona_nos_eixos(-10, 10, 0)
+piramideBaseQuadrada.adiciona_nos_eixos(-10, 10, 10)  # Octante II (-, +, +)
 
 paralelepipedo = Paralelepipedo()
-paralelepipedo.adiciona_nos_eixos(10, -10, 10)
-
+paralelepipedo.adiciona_nos_eixos(10, -10, -10)  # Octante VIII (+, -, -)
 
 troncoPiramide = TroncoPiramide()
-troncoPiramide.adiciona_nos_eixos(-10, -10, -10)
+troncoPiramide.adiciona_nos_eixos(-10, -10, -10)  # Octante VII (-, -, -)
 
 solidos = list()
 solidos.append(cubo)
