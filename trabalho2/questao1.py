@@ -20,36 +20,16 @@ from matplotlib import pyplot as plt
 
 from trabalho2.Cubo import Cubo
 from trabalho2.Paralelepipedo import Paralelepipedo
+from trabalho2.PiramideBaseQuadrada import PiramideBaseQuadrada
+from trabalho2.PlotaSolido import plota_solido
+from trabalho2.TroncoPiramide import TroncoPiramide
 
 cubo = Cubo()
-cubo.set_vertices(10)
-print()
+paralelepipedo = Paralelepipedo()
+piramideBaseQuadrada = PiramideBaseQuadrada()
+troncoPiramide = TroncoPiramide()
 
-vertices1 = cubo.vertices
-arestas = cubo.arestas
-
-fig = plt.figure(constrained_layout=True)
-ax = fig.add_subplot(111, projection='3d')
-
-for nome, vertice in vertices1.items():
-    ax.scatter(vertice[0], vertice[1], vertice[2])
-    # ax.text(vertice[0], vertice[1], vertice[2], nome, size=20, zorder=1, color='k')
-
-for key, value in arestas.items():
-    pontos = [vertices1[value[0]], vertices1[value[1]]]
-    x = [pontos[0][0], pontos[1][0]]
-    y = [pontos[0][1], pontos[1][1]]
-    z = [pontos[0][2], pontos[1][2]]
-    ax.plot(x, y, z)
-
-ax.set_xlabel('X Label')
-ax.set_ylabel('Y Label')
-ax.set_zlabel('Z Label')
-ax.set_title("Cubo")
-
-ax.set_xlim(-5, 5)
-ax.set_ylim(-5, 5)
-ax.set_zlim(-5, 5)
-
-
-plt.show()
+plota_solido(cubo)
+plota_solido(paralelepipedo)
+plota_solido(piramideBaseQuadrada)
+plota_solido(troncoPiramide)
