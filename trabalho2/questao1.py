@@ -22,17 +22,18 @@ from trabalho2.Cubo import Cubo
 from trabalho2.Paralelepipedo import Paralelepipedo
 
 cubo = Cubo()
-paralelepipedo = Paralelepipedo()
+cubo.set_vertices(10)
+print()
 
-vertices1 = paralelepipedo.vertices
-arestas = paralelepipedo.arestas
+vertices1 = cubo.vertices
+arestas = cubo.arestas
 
 fig = plt.figure(constrained_layout=True)
 ax = fig.add_subplot(111, projection='3d')
 
 for nome, vertice in vertices1.items():
     ax.scatter(vertice[0], vertice[1], vertice[2])
-    ax.text(vertice[0], vertice[1], vertice[2], nome, size=20, zorder=1, color='k')
+    # ax.text(vertice[0], vertice[1], vertice[2], nome, size=20, zorder=1, color='k')
 
 for key, value in arestas.items():
     pontos = [vertices1[value[0]], vertices1[value[1]]]
