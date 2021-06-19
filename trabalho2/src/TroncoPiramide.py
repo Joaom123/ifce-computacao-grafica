@@ -1,6 +1,6 @@
 import math
 
-from trabalho2.Solido import Solido
+from trabalho2.src.Solido import Solido
 
 
 def constroi_vertices():

@@ -1,5 +1,5 @@
-from trabalho2.Cubo import constroi_arestas  # Mesmas arestas que o cubo
-from trabalho2.Solido import Solido
+from trabalho2.src.Cubo import constroi_arestas  # Mesmas arestas que o cubo
+from trabalho2.src.Solido import Solido
 
 
 def constroi_vertices():

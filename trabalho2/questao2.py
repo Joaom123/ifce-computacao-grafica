@@ -14,11 +14,11 @@ sejam localizados respeitando tais limites.
 
 c. Apresente os diversos sólidos neste sistema de coordenadas em 3D.
 """
-from trabalho2.Cubo import Cubo
-from trabalho2.Paralelepipedo import Paralelepipedo
-from trabalho2.PiramideBaseQuadrada import PiramideBaseQuadrada
-from trabalho2.PlotaSolido import plota_solidos
-from trabalho2.TroncoPiramide import TroncoPiramide
+from trabalho2.src.Cubo import Cubo
+from trabalho2.src.Paralelepipedo import Paralelepipedo
+from trabalho2.src.PiramideBaseQuadrada import PiramideBaseQuadrada
+from trabalho2.src.PlotaSolido import plota_solidos
+from trabalho2.src.TroncoPiramide import TroncoPiramide
 
 cubo = Cubo()
 cubo.adiciona_nos_eixos(10, 10, 10)  # Octante I (+, +, +)

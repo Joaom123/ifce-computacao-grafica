@@ -16,13 +16,12 @@ d. tronco de pirâmide com bases quadradas de lados, respectivamente, iguais a 3
 Na construção dos sólidos, considere vértices e arestas, de tal maneira que cada
 um seja descrito em termos de seu próprio sistema de coordenadas de objeto.
 """
-from matplotlib import pyplot as plt
 
-from trabalho2.Cubo import Cubo
-from trabalho2.Paralelepipedo import Paralelepipedo
-from trabalho2.PiramideBaseQuadrada import PiramideBaseQuadrada
-from trabalho2.PlotaSolido import plota_solido
-from trabalho2.TroncoPiramide import TroncoPiramide
+from trabalho2.src.Cubo import Cubo
+from trabalho2.src.Paralelepipedo import Paralelepipedo
+from trabalho2.src.PiramideBaseQuadrada import PiramideBaseQuadrada
+from trabalho2.src.PlotaSolido import plota_solido
+from trabalho2.src.TroncoPiramide import TroncoPiramide
 
 cubo = Cubo()
 paralelepipedo = Paralelepipedo()

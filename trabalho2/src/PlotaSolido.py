@@ -2,7 +2,7 @@ from typing import List
 
 from matplotlib import pyplot as plt
 
-from trabalho2.Solido import Solido
+from trabalho2.src.Solido import Solido
 
 
 def inicia_grafico():
