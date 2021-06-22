@@ -34,8 +34,8 @@ troncoPiramide.adiciona_nos_eixos(-10, -10, -10)  # Octante VII (-, -, -)
 
 solidos = list()
 solidos.append(cubo)
-solidos.append(paralelepipedo)
 solidos.append(piramideBaseQuadrada)
+solidos.append(paralelepipedo)
 solidos.append(troncoPiramide)
 
 plota_solidos(solidos, titulo="cena3D")

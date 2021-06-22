@@ -6,4 +6,3 @@ cores diferentes.
 
 a. Apresente tais objetos em 2D.
 """
-
