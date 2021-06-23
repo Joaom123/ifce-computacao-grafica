@@ -37,5 +37,7 @@ class Cubo(Solido):
     cubo e aresta do quadrado inferior paralela ao eixo x
     """
 
+    # TODO: Ajeitar cubo
+
     def __init__(self, tamanho_aresta: float = 1.5, titulo: str = "Cubo", cor: str = "b"):
         super().__init__(constroi_vertices(tamanho_aresta), constroi_arestas(), titulo, cor)
