@@ -21,5 +21,5 @@ class Paralelepipedo(Solido):
     um dos vértices pertencentes ao retângulo inferior e aresta paralela ao eixo y
     """
 
-    def __init__(self, titulo: str = "Paralelepipedo"):
-        super(Paralelepipedo, self).__init__(constroi_vertices(), constroi_arestas(), titulo)
+    def __init__(self, titulo: str = "Paralelepipedo", cor: str = "g"):
+        super(Paralelepipedo, self).__init__(constroi_vertices(), constroi_arestas(), titulo, cor)
