@@ -1,4 +1,5 @@
 from dataclasses import dataclass, field
+from typing import List
 
 import numpy as np
 
@@ -45,3 +46,16 @@ class Solido:
         matriz_vertices[:, [1]] = matriz_vertices[:, [1]] + eixo_y
         matriz_vertices[:, [2]] = matriz_vertices[:, [2]] + eixo_z
         self.matriz_para_vertices(matriz_vertices)
+
+    def centro_de_massa(self) -> List:
+        """
+        Retorna o ponto do centro de massa do sólido. Utilizamos a média do pontos no eixo x, y e z. Isso é válido,
+        pois consideramos o sólido homogêneo.
+        :return: [cm_x, cm_y, cm_z] que são as coordenadas do centro de massa
+        """
+        matriz_vertices = self.array_de_vertices()
+        media_x = np.median(matriz_vertices[:, [0]])
+        media_y = np.median(matriz_vertices[:, [1]])
+        media_z = np.median(matriz_vertices[:, [2]])
+
+        return [media_x, media_y, media_z]
