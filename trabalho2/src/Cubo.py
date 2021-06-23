@@ -3,14 +3,14 @@ from trabalho2.src.Solido import Solido
 
 def constroi_vertices(tamanho_aresta: float):
     vertices = dict()
-    vertices["V1"] = [0, 0, 0]
-    vertices["V2"] = [tamanho_aresta, 0, 0]
-    vertices["V3"] = [0, tamanho_aresta, 0]
-    vertices["V4"] = [0, 0, tamanho_aresta]
-    vertices["V5"] = [tamanho_aresta, tamanho_aresta, 0]
-    vertices["V6"] = [tamanho_aresta, 0, tamanho_aresta]
-    vertices["V7"] = [0, tamanho_aresta, tamanho_aresta]
-    vertices["V8"] = [tamanho_aresta, tamanho_aresta, tamanho_aresta]
+    vertices["V1"] = [-tamanho_aresta / 2, -tamanho_aresta / 2, 0]
+    vertices["V2"] = [tamanho_aresta / 2, -tamanho_aresta / 2, 0]
+    vertices["V3"] = [-tamanho_aresta / 2, tamanho_aresta / 2, 0]
+    vertices["V4"] = [-tamanho_aresta / 2, -tamanho_aresta / 2, tamanho_aresta]
+    vertices["V5"] = [tamanho_aresta / 2, tamanho_aresta / 2, 0]
+    vertices["V6"] = [tamanho_aresta / 2, -tamanho_aresta / 2, tamanho_aresta]
+    vertices["V7"] = [-tamanho_aresta / 2, tamanho_aresta / 2, tamanho_aresta]
+    vertices["V8"] = [tamanho_aresta / 2, tamanho_aresta / 2, tamanho_aresta]
     return vertices
 
 
@@ -36,8 +36,6 @@ class Cubo(Solido):
     Cubo de lado igual a 1.5, com origem no centro do quadrado inferior do
     cubo e aresta do quadrado inferior paralela ao eixo x
     """
-
-    # TODO: Ajeitar cubo
 
     def __init__(self, tamanho_aresta: float = 1.5, titulo: str = "Cubo", cor: str = "b"):
         super().__init__(constroi_vertices(tamanho_aresta), constroi_arestas(), titulo, cor)

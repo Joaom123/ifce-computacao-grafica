@@ -42,12 +42,24 @@ def plota_arestas(solido: Solido, ax) -> None:
         ax.plot(x, y, z, color=solido.cor)
 
 
-def plota_solido(solido: Solido, com_arestas=True, com_pontos=False) -> None:
+def plota_eixos(ax) -> None:
+    """
+    Plota eixos no subplot
+    :param ax: Subplot
+    :return: None
+    """
+    ax.plot([40, -40], [0, 0], [0, 0], color='black', linestyle='dashed')
+    ax.plot([0, 0], [40, -40], [0, 0], color='black', linestyle='dashed')
+    ax.plot([0, 0], [0, 0], [40, -40], color='black', linestyle='dashed')
+
+
+def plota_solido(solido: Solido, com_arestas=True, com_pontos=False, com_eixos=True) -> None:
     """
     Plota o sólido em um subplot
     :param solido: O sólido a ser plotado
     :param com_arestas: True, se arestas devem ser plotadas. False caso contrário.
     :param com_pontos: True, se vertices devem ser plotadas. False caso contrário.
+    :param com_eixos: True, se eixos devem ser plotadas. False caso contrário.
     :return: None
     """
     fig, ax = inicia_grafico()
@@ -57,6 +69,9 @@ def plota_solido(solido: Solido, com_arestas=True, com_pontos=False) -> None:
 
     if com_arestas:
         plota_arestas(solido, ax)
+
+    if com_eixos:
+        plota_eixos(ax)
 
     ax.set_title(solido.titulo)
 
@@ -72,12 +87,13 @@ def plota_solido(solido: Solido, com_arestas=True, com_pontos=False) -> None:
     plt.show()
 
 
-def plota_solidos(solidos: List[Solido], com_arestas=True, com_pontos=False, titulo: str = "image") -> None:
+def plota_solidos(solidos: List[Solido], com_arestas=True, com_pontos=False, com_eixos=True, titulo: str = "image") -> None:
     """
     Recebe uma lista de sólidos e os plota em um mesmo gráfico 3D
     :param solidos: Lista de sólidos a serem plotados
     :param com_arestas: True, se arestas devem ser plotadas. False caso contrário.
     :param com_pontos: True, se vertices devem ser plotadas. False caso contrário.
+    :param com_eixos: True, se eixos devem ser plotadas. False caso contrário.
     :param titulo: Nome do arquivo e legenda
     :return: None
     """
@@ -90,10 +106,8 @@ def plota_solidos(solidos: List[Solido], com_arestas=True, com_pontos=False, tit
         if com_arestas:
             plota_arestas(solido, ax)
 
-    # Plot dos eixos
-    ax.plot([40, -40], [0, 0], [0, 0], color='black', linestyle='dashed')
-    ax.plot([0, 0], [40, -40], [0, 0], color='black', linestyle='dashed')
-    ax.plot([0, 0], [0, 0], [40, -40], color='black', linestyle='dashed')
+    if com_eixos:
+        plota_eixos(ax)
 
     ax.set_title(titulo)
 
