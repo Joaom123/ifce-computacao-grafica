@@ -60,12 +60,12 @@ def plota_solidos(solidos: List[Solido], com_arestas=True, com_pontos=False, tit
     ax.plot([0, 0], [40, -40], [0, 0], color='black', linestyle='dashed')
     ax.plot([0, 0], [0, 0], [40, -40], color='black', linestyle='dashed')
 
+    ax.set_title(titulo)
     ax.set_xlabel('X')
     ax.set_ylabel('Y')
     ax.set_zlabel('Z')
     ax.set_xlim(-15, 15)
     ax.set_ylim(-15, 15)
     ax.set_zlim(-15, 15)
-
     plt.savefig("images/" + titulo + ".png")
     plt.show()
