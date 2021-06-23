@@ -8,7 +8,7 @@ from trabalho2.src.Solido import Solido
 def inicia_grafico():
     """
     Inicia o gráfico com apenas um subplot
-    :return:
+    :return: Figure e Subplot
     """
     fig = plt.figure(constrained_layout=True)
     ax = fig.add_subplot(111, projection='3d')
@@ -44,11 +44,11 @@ def plota_arestas(solido: Solido, ax) -> None:
 
 def plota_solido(solido: Solido, com_arestas=True, com_pontos=False) -> None:
     """
-
-    :param solido:
-    :param com_arestas:
-    :param com_pontos:
-    :return:
+    Plota o sólido em um subplot
+    :param solido: O sólido a ser plotado
+    :param com_arestas: True, se arestas devem ser plotadas. False caso contrário.
+    :param com_pontos: True, se vertices devem ser plotadas. False caso contrário.
+    :return: None
     """
     fig, ax = inicia_grafico()
 
@@ -59,24 +59,27 @@ def plota_solido(solido: Solido, com_arestas=True, com_pontos=False) -> None:
         plota_arestas(solido, ax)
 
     ax.set_title(solido.titulo)
+
     ax.set_xlabel('X')
     ax.set_ylabel('Y')
     ax.set_zlabel('Z')
+
     ax.set_xlim(-3, 3)
     ax.set_ylim(-3, 3)
     ax.set_zlim(-3, 3)
+
     plt.savefig("images/" + solido.titulo + ".png")
     plt.show()
 
 
 def plota_solidos(solidos: List[Solido], com_arestas=True, com_pontos=False, titulo: str = "image") -> None:
     """
-
-    :param solidos:
-    :param com_arestas:
-    :param com_pontos:
-    :param titulo:
-    :return:
+    Recebe uma lista de sólidos e os plota em um mesmo gráfico 3D
+    :param solidos: Lista de sólidos a serem plotados
+    :param com_arestas: True, se arestas devem ser plotadas. False caso contrário.
+    :param com_pontos: True, se vertices devem ser plotadas. False caso contrário.
+    :param titulo: Nome do arquivo e legenda
+    :return: None
     """
     fig, ax = inicia_grafico()
 
@@ -87,16 +90,20 @@ def plota_solidos(solidos: List[Solido], com_arestas=True, com_pontos=False, tit
         if com_arestas:
             plota_arestas(solido, ax)
 
+    # Plot dos eixos
     ax.plot([40, -40], [0, 0], [0, 0], color='black', linestyle='dashed')
     ax.plot([0, 0], [40, -40], [0, 0], color='black', linestyle='dashed')
     ax.plot([0, 0], [0, 0], [40, -40], color='black', linestyle='dashed')
 
     ax.set_title(titulo)
+
     ax.set_xlabel('X')
     ax.set_ylabel('Y')
     ax.set_zlabel('Z')
+
     ax.set_xlim(-15, 15)
     ax.set_ylim(-15, 15)
     ax.set_zlim(-15, 15)
+
     plt.savefig("images/" + titulo + ".png")
     plt.show()
