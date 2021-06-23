@@ -38,4 +38,4 @@ solidos.append(piramideBaseQuadrada)
 solidos.append(paralelepipedo)
 solidos.append(troncoPiramide)
 
-plota_solidos(solidos, titulo="cena3D")
+plota_solidos(solidos, titulo="Sólidos nas Coordenadas Mundo")
