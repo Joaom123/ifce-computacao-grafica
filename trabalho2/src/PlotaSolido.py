@@ -23,7 +23,7 @@ def plota_arestas(solido: Solido, ax):
         x = [pontos[0][0], pontos[1][0]]
         y = [pontos[0][1], pontos[1][1]]
         z = [pontos[0][2], pontos[1][2]]
-        ax.plot(x, y, z)
+        ax.plot(x, y, z, color=solido.cor)
 
 
 def plota_solido(solido: Solido, com_arestas=True, com_pontos=False):
