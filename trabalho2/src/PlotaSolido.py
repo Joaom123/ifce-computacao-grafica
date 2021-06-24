@@ -30,8 +30,8 @@ def plota_pontos(solido: Solido, ax) -> None:
 def plota_arestas(solido: Solido, ax) -> None:
     """
     Plota os arestas de um sólido em um subplot
-    :param solido:
-    :param ax:
+    :param solido: Solido a ser plotado
+    :param ax: Subplot
     :return: None
     """
     for key, value in solido.arestas.items():
@@ -87,7 +87,8 @@ def plota_solido(solido: Solido, com_arestas=True, com_pontos=False, com_eixos=T
     plt.show()
 
 
-def plota_solidos(solidos: List[Solido], com_arestas=True, com_pontos=False, com_eixos=True, titulo: str = "image") -> None:
+def plota_solidos(solidos: List[Solido], com_arestas=True, com_pontos=False, com_eixos=True,
+                  titulo: str = "image", *args) -> None:
     """
     Recebe uma lista de sólidos e os plota em um mesmo gráfico 3D
     :param solidos: Lista de sólidos a serem plotados

@@ -6,3 +6,12 @@ cores diferentes.
 
 a. Apresente tais objetos em 2D.
 """
+import numpy as np
+
+P = np.matrix([
+    [1, 0, 0, 0],
+    [0, 1, 0, 0],
+    [0, 0, 0, 0],
+    [0, 0, 0, 1]
+])
+

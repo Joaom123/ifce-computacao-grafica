@@ -21,16 +21,16 @@ from trabalho2.src.PlotaSolido import plota_solidos
 from trabalho2.src.TroncoPiramide import TroncoPiramide
 
 cubo = Cubo()
-cubo.adiciona_nos_eixos(10, 10, 10)  # Octante I (+, +, +)
+cubo.adiciona_nos_eixos(3.5, 3.5, 3.5)  # Octante I (+, +, +)
 
 piramideBaseQuadrada = PiramideBaseQuadrada()
-piramideBaseQuadrada.adiciona_nos_eixos(-10, 10, 10)  # Octante II (-, +, +)
+piramideBaseQuadrada.adiciona_nos_eixos(-3.5, 3.5, 3.5)  # Octante II (-, +, +)
 
 paralelepipedo = Paralelepipedo()
-paralelepipedo.adiciona_nos_eixos(10, -10, -10)  # Octante VIII (+, -, -)
+paralelepipedo.adiciona_nos_eixos(3.5, -3.5, -3.5)  # Octante VIII (+, -, -)
 
 troncoPiramide = TroncoPiramide()
-troncoPiramide.adiciona_nos_eixos(-10, -10, -10)  # Octante VII (-, -, -)
+troncoPiramide.adiciona_nos_eixos(-3.5, -3.5, -3.5)  # Octante VII (-, -, -)
 
 solidos = list()
 solidos.append(cubo)
@@ -38,4 +38,4 @@ solidos.append(piramideBaseQuadrada)
 solidos.append(paralelepipedo)
 solidos.append(troncoPiramide)
 
-plota_solidos(solidos, titulo="Sólidos nas Coordenadas Mundo")
+plota_solidos(solidos, titulo="Sólidos no SCM")
