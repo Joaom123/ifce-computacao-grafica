@@ -42,4 +42,4 @@ for solido in solidos:
         ax.plot(x, y, color=solido.cor)
 
 plt.savefig("images/" + "projecao2D.png")
-fig.show()
+plt.show()

@@ -23,7 +23,7 @@ def plota_pontos(solido: Solido, ax) -> None:
     :return: None
     """
     for nome, vertice in solido.vertices.items():
-        ax.scatter(vertice[0], vertice[1], vertice[2])
+        ax.scatter(vertice[0], vertice[1], vertice[2], c=solido.cor)
         ax.text(vertice[0], vertice[1], vertice[2], nome, size=12, zorder=1, color='k')
 
 
@@ -79,9 +79,9 @@ def plota_solido(solido: Solido, com_arestas=True, com_pontos=False, com_eixos=T
     ax.set_ylabel('Y')
     ax.set_zlabel('Z')
 
-    ax.set_xlim(-3, 3)
-    ax.set_ylim(-3, 3)
-    ax.set_zlim(-3, 3)
+    ax.set_xlim(-5, 5)
+    ax.set_ylim(-5, 5)
+    ax.set_zlim(-5, 5)
 
     plt.savefig("images/" + solido.titulo + ".png")
     plt.show()
@@ -116,9 +116,9 @@ def plota_solidos(solidos: List[Solido], com_arestas=True, com_pontos=False, com
     ax.set_ylabel('Y')
     ax.set_zlabel('Z')
 
-    ax.set_xlim(-15, 15)
-    ax.set_ylim(-15, 15)
-    ax.set_zlim(-15, 15)
+    ax.set_xlim(-6, 6)
+    ax.set_ylim(-6, 6)
+    ax.set_zlim(-6, 6)
 
     plt.savefig("images/" + titulo + ".png")
     plt.show()

@@ -47,7 +47,7 @@ cm_solidos = centro_de_massa_dos_solidos(solidos)
 # Foi escolhido o octante V (+, +, -)
 # Parâmetros Extrínsecos da Câmera
 # Ponto de origem, em relação ao SCM, da câmera
-origem_camera = np.array([10, 10, -10])
+origem_camera = np.array([5, 4, -1])
 # n, v e u devem ser normalizados
 n = (cm_solidos - origem_camera)
 n_norm = np.sqrt(sum(n ** 2))
