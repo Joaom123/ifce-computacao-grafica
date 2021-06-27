@@ -31,6 +31,17 @@ def constroi_arestas():
     return arestas
 
 
+def constroi_faces():
+    faces = dict()
+    faces["F1"] = ("V1", "V2", "V5", "V3")
+    faces["F2"] = ("V1", "V2", "V6", "V4")
+    faces["F3"] = ("V4", "V6", "V8", "V7")
+    faces["F4"] = ("V3", "V5", "V8", "V7")
+    faces["F5"] = ("V1", "V3", "V7", "V4")
+    faces["F6"] = ("V2", "V5", "V8", "V6")
+    return faces
+
+
 class Cubo(Solido):
     """
     Cubo de lado igual a 1.5, com origem no centro do quadrado inferior do
@@ -38,4 +49,4 @@ class Cubo(Solido):
     """
 
     def __init__(self, tamanho_aresta: float = 1.5, titulo: str = "Cubo", cor: str = "b"):
-        super().__init__(constroi_vertices(tamanho_aresta), constroi_arestas(), titulo, cor)
+        super().__init__(constroi_vertices(tamanho_aresta), constroi_arestas(), constroi_faces(), titulo, cor)

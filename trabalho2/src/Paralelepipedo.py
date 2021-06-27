@@ -1,4 +1,4 @@
-from trabalho2.src.Cubo import constroi_arestas  # Mesmas arestas que o cubo
+from trabalho2.src.Cubo import constroi_arestas, constroi_faces  # Mesmas arestas que o cubo
 from trabalho2.src.Solido import Solido
 
 
@@ -22,4 +22,4 @@ class Paralelepipedo(Solido):
     """
 
     def __init__(self, titulo: str = "Paralelepipedo", cor: str = "g"):
-        super(Paralelepipedo, self).__init__(constroi_vertices(), constroi_arestas(), titulo, cor)
+        super(Paralelepipedo, self).__init__(constroi_vertices(), constroi_arestas(), constroi_faces(), titulo, cor)

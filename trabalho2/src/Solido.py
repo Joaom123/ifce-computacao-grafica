@@ -9,13 +9,15 @@ from numpy import ndarray
 class Solido:
     vertices: dict = field(default_factory=dict)
     arestas: dict = field(default_factory=dict)
+    faces: dict = field(default_factory=dict)
     titulo: str = ""
     cor: str = ""
 
-    def __init__(self, vertices: dict, arestas: dict, titulo: str, cor: str):
+    def __init__(self, vertices: dict, arestas: dict, faces: dict, titulo: str, cor: str):
         self.vertices = vertices
         self.arestas = arestas
         self.titulo = titulo
+        self.faces = faces
         self.cor = cor
 
     def array_de_vertices(self) -> ndarray:
@@ -81,3 +83,12 @@ class Solido:
         media_z = np.median(matriz_vertices[:, [2]])
 
         return [media_x, media_y, media_z]
+
+    def vertice_faces(self) -> ndarray:
+        vertices_faces = []
+        for face, vertices_da_face in self.faces.items():
+            vertices = []
+            for vertice in vertices_da_face:
+                vertices.append(self.vertices[vertice])
+            vertices_faces.append(vertices)
+        return np.array(vertices_faces)

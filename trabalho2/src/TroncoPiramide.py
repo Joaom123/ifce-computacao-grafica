@@ -33,6 +33,17 @@ def constroi_arestas():
     return arestas
 
 
+def constroi_faces():
+    faces = dict()
+    faces["F1"] = ("V1", "V8", "V7", "V6")
+    faces["F2"] = ("V2", "V5", "V4", "V3")
+    faces["F3"] = ("V6", "V7", "V4", "V5")
+    faces["F4"] = ("V7", "V4", "V3", "V8")
+    faces["F5"] = ("V1", "V6", "V5", "V2")
+    faces["F6"] = ("V1", "V8", "V3", "V2")
+    return faces
+
+
 class TroncoPiramide(Solido):
     """
     Tronco de pirâmide com bases quadradas de lados, respectivamente, iguais a 3.0 e 1.3,
@@ -40,4 +51,4 @@ class TroncoPiramide(Solido):
     """
 
     def __init__(self, titulo: str = "Tronco Piramide", cor: str = "m"):
-        super().__init__(constroi_vertices(), constroi_arestas(), titulo, cor)
+        super().__init__(constroi_vertices(), constroi_arestas(), constroi_faces(), titulo, cor)

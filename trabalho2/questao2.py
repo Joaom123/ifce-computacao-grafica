@@ -38,4 +38,4 @@ solidos.append(piramideBaseQuadrada)
 solidos.append(paralelepipedo)
 solidos.append(troncoPiramide)
 
-plota_solidos(solidos, titulo="Sólidos no SCM")
+plota_solidos(solidos, titulo="Sólidos no SCM com volume", com_volume=True)

@@ -1,6 +1,7 @@
 from typing import List
 
 from matplotlib import pyplot as plt
+from mpl_toolkits.mplot3d import art3d
 
 from trabalho2.src.Solido import Solido
 
@@ -53,13 +54,14 @@ def plota_eixos(ax) -> None:
     ax.plot([0, 0], [0, 0], [40, -40], color='black', linestyle='dashed')
 
 
-def plota_solido(solido: Solido, com_arestas=True, com_pontos=False, com_eixos=True) -> None:
+def plota_solido(solido: Solido, com_arestas=True, com_pontos=False, com_eixos=True, com_volume=False) -> None:
     """
     Plota o sólido em um subplot
     :param solido: O sólido a ser plotado
     :param com_arestas: True, se arestas devem ser plotadas. False caso contrário.
     :param com_pontos: True, se vertices devem ser plotadas. False caso contrário.
     :param com_eixos: True, se eixos devem ser plotadas. False caso contrário.
+    :param com_volume: True, o sólido deve ter volume. False caso contrário.
     :return: None
     """
     fig, ax = inicia_grafico()
@@ -72,6 +74,10 @@ def plota_solido(solido: Solido, com_arestas=True, com_pontos=False, com_eixos=T
 
     if com_eixos:
         plota_eixos(ax)
+
+    if com_volume:
+        pc = art3d.Poly3DCollection(solido.vertice_faces(), facecolors=solido.cor)
+        ax.add_collection(pc)
 
     ax.set_title(solido.titulo)
 
@@ -88,13 +94,14 @@ def plota_solido(solido: Solido, com_arestas=True, com_pontos=False, com_eixos=T
 
 
 def plota_solidos(solidos: List[Solido], com_arestas=True, com_pontos=False, com_eixos=True,
-                  titulo: str = "image", *args) -> None:
+                  com_volume=False, titulo: str = "image") -> None:
     """
     Recebe uma lista de sólidos e os plota em um mesmo gráfico 3D
     :param solidos: Lista de sólidos a serem plotados
     :param com_arestas: True, se arestas devem ser plotadas. False caso contrário.
     :param com_pontos: True, se vertices devem ser plotadas. False caso contrário.
     :param com_eixos: True, se eixos devem ser plotadas. False caso contrário.
+    :param com_volume: True, se os sólidos devem ter volume. False caso contrário.
     :param titulo: Nome do arquivo e legenda
     :return: None
     """
@@ -106,6 +113,10 @@ def plota_solidos(solidos: List[Solido], com_arestas=True, com_pontos=False, com
 
         if com_arestas:
             plota_arestas(solido, ax)
+
+        if com_volume:
+            pc = art3d.Poly3DCollection(solido.vertice_faces(), facecolors=solido.cor)
+            ax.add_collection(pc)
 
     if com_eixos:
         plota_eixos(ax)

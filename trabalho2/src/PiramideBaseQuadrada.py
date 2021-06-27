@@ -26,6 +26,16 @@ def constroi_arestas():
     return arestas
 
 
+def constroi_faces():
+    faces = dict()
+    faces["F1"] = ("V1", "V2", "V3")
+    faces["F2"] = ("V1", "V2", "V5")
+    faces["F3"] = ("V1", "V3", "V4")
+    faces["F4"] = ("V3", "V4", "V5")
+    faces["F5"] = ("V2", "V3", "V4", "V5")
+    return faces
+
+
 class PiramideBaseQuadrada(Solido):
     """
     Pirâmide com base quadrada de lado igual a 2.0 e altura igual a 3.0, com
@@ -34,4 +44,4 @@ class PiramideBaseQuadrada(Solido):
     """
 
     def __init__(self, titulo: str = "Piramide Base Quadrada", cor: str = "r"):
-        super().__init__(constroi_vertices(), constroi_arestas(), titulo, cor)
+        super().__init__(constroi_vertices(), constroi_arestas(), constroi_faces(), titulo, cor)

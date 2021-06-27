@@ -85,7 +85,7 @@ piramideBaseQuadrada.multiplicacao_por_matriz(V)
 paralelepipedo.multiplicacao_por_matriz(V)
 troncoPiramide.multiplicacao_por_matriz(V)
 
-plota_solidos(solidos, titulo="Sólidos no SCC")
+plota_solidos(solidos, titulo="Sólidos no SCC com volume", com_volume=True)
 
 # Debug pra ver a posição dos vetores no espaço
 # fig = plt.figure(constrained_layout=True)
