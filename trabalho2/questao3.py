@@ -58,7 +58,7 @@ v = up - (np.dot(up, n) / n_norm ** 2) * n
 
 n = n / n_norm  # normalizando o vetor n
 v = v / np.sqrt(sum(v ** 2))  # normalizando o vetor v
-print(np.dot(n, v))  # como v e n devem ser ortogonais, então o produto escalar deve ser próximos de 0
+# print(np.dot(n, v))  # como v e n devem ser ortogonais, então o produto escalar deve ser próximos de 0
 
 u = np.cross(v, n)  # como v e n estão normalizados, u também está normalizado
 
@@ -80,12 +80,23 @@ R = np.matrix([
 
 V = R * T
 
+# Debug - Distância entre o vértice V1 do cubo e a origem da câmera (eye)
+primero_vertice_cubo = cubo.vertices["V1"]
+print("Tamanho do vetor diferença entre o vértice V1 do cubo e a origem da câmera (eye): {}".format(
+    np.linalg.norm(primero_vertice_cubo - origem_camera)))
+
+# Multiplicação dos sólidos pela matriz V, agora todos os sólidos estão no SCC
 cubo.multiplicacao_por_matriz(V)
 piramideBaseQuadrada.multiplicacao_por_matriz(V)
 paralelepipedo.multiplicacao_por_matriz(V)
 troncoPiramide.multiplicacao_por_matriz(V)
 
 plota_solidos(solidos, titulo="Sólidos no SCC")
+
+# Debug - Distância entre o vértice V1 do cubo e o origem das coordenadas do SCC (0, 0, 0)
+primero_vertice_cubo = cubo.vertices["V1"]
+print("Tamanho do vetor diferença entre o vértice V1 do cubo e a origem das coordenadas do SCC (0, 0, 0): {}".format(
+    np.linalg.norm(primero_vertice_cubo)))
 
 # Debug pra ver a posição dos vetores no espaço
 # fig = plt.figure(constrained_layout=True)
