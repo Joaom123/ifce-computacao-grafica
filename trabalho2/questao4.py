@@ -29,6 +29,8 @@ ax = fig.add_subplot(111)
 ax.set_title("Projeção nos eixos x e y dos sólidos")
 ax.set_xlabel('X')
 ax.set_ylabel('Y')
+# ax.set_xlim(-6, 6)
+ax.set_ylim(-6, 0)
 for solido in solidos:
     # Plotando vértices
     # for nome, vertice in solido.vertices.items():

@@ -63,15 +63,19 @@ def plota_solido(solido: Solido, com_arestas=True, com_pontos=False, com_eixos=T
     :return: None
     """
     fig, ax = inicia_grafico()
+    nome_imagem = solido.titulo
 
     if com_pontos:
         plota_pontos(solido, ax)
+        nome_imagem = nome_imagem + "ComPontos"
 
     if com_arestas:
         plota_arestas(solido, ax)
+        # nome_imagem = nome_imagem + "ComArestas"
 
     if com_eixos:
         plota_eixos(ax)
+        nome_imagem = nome_imagem + "ComEixos"
 
     ax.set_title(solido.titulo)
 
@@ -83,12 +87,12 @@ def plota_solido(solido: Solido, com_arestas=True, com_pontos=False, com_eixos=T
     ax.set_ylim(-5, 5)
     ax.set_zlim(-5, 5)
 
-    plt.savefig("images/" + solido.titulo + ".png")
+    plt.savefig("images/" + nome_imagem + ".png")
     plt.show()
 
 
 def plota_solidos(solidos: List[Solido], com_arestas=True, com_pontos=False, com_eixos=True,
-                  titulo: str = "image", *args) -> None:
+                  titulo: str = "image", tem_volume_visao=False) -> None:
     """
     Recebe uma lista de sólidos e os plota em um mesmo gráfico 3D
     :param solidos: Lista de sólidos a serem plotados
@@ -99,16 +103,20 @@ def plota_solidos(solidos: List[Solido], com_arestas=True, com_pontos=False, com
     :return: None
     """
     fig, ax = inicia_grafico()
+    nome_imagem = titulo
 
     for solido in solidos:
         if com_pontos:
             plota_pontos(solido, ax)
+            nome_imagem = nome_imagem + "ComPontos"
 
         if com_arestas:
             plota_arestas(solido, ax)
+            # nome_imagem = nome_imagem + "ComArestas"
 
     if com_eixos:
         plota_eixos(ax)
+        nome_imagem = nome_imagem + "ComEixos"
 
     ax.set_title(titulo)
 
@@ -116,9 +124,14 @@ def plota_solidos(solidos: List[Solido], com_arestas=True, com_pontos=False, com
     ax.set_ylabel('Y')
     ax.set_zlabel('Z')
 
-    ax.set_xlim(-6, 6)
-    ax.set_ylim(-6, 6)
-    ax.set_zlim(-6, 6)
+    if tem_volume_visao:
+        ax.set_xlim(0, 6)
+        ax.set_ylim(-6, 0)
+        ax.set_zlim(0, 6)
+    else:
+        ax.set_xlim(-6, 6)
+        ax.set_ylim(-6, 6)
+        ax.set_zlim(-6, 6)
 
-    plt.savefig("images/" + titulo + ".png")
+    plt.savefig("images/" + nome_imagem + ".png")
     plt.show()

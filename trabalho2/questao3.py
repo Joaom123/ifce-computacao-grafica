@@ -91,7 +91,7 @@ piramideBaseQuadrada.multiplicacao_por_matriz(V)
 paralelepipedo.multiplicacao_por_matriz(V)
 troncoPiramide.multiplicacao_por_matriz(V)
 
-plota_solidos(solidos, titulo="Sólidos no SCC")
+plota_solidos(solidos, titulo="Sólidos no SCC", tem_volume_visao=True)
 
 # Debug - Distância entre o vértice V1 do cubo e o origem das coordenadas do SCC (0, 0, 0)
 primero_vertice_cubo = cubo.vertices["V1"]
