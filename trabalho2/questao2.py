@@ -38,4 +38,5 @@ solidos.append(piramideBaseQuadrada)
 solidos.append(paralelepipedo)
 solidos.append(troncoPiramide)
 
-plota_solidos(solidos, titulo="Sólidos no SCM")
+if __name__ == '__main__':
+    plota_solidos(solidos, titulo="Sólidos no SCM")

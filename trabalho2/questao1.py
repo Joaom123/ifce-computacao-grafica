@@ -28,7 +28,8 @@ paralelepipedo = Paralelepipedo()
 piramideBaseQuadrada = PiramideBaseQuadrada()
 troncoPiramide = TroncoPiramide()
 
-plota_solido(cubo, com_pontos=True)
-plota_solido(paralelepipedo, com_pontos=True)
-plota_solido(piramideBaseQuadrada, com_pontos=True)
-plota_solido(troncoPiramide, com_pontos=True)
+if __name__ == '__main__':
+    plota_solido(cubo, com_pontos=True)
+    plota_solido(paralelepipedo, com_pontos=True)
+    plota_solido(piramideBaseQuadrada, com_pontos=True)
+    plota_solido(troncoPiramide, com_pontos=True)

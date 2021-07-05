@@ -16,7 +16,7 @@ from typing import List
 import numpy as np
 from numpy import ndarray
 
-from trabalho2.questao2 import cubo, piramideBaseQuadrada, paralelepipedo, troncoPiramide
+from trabalho2.questao2 import cubo, piramideBaseQuadrada, paralelepipedo, troncoPiramide, solidos
 from trabalho2.src.PlotaSolido import plota_solidos
 from trabalho2.src.Solido import Solido
 
@@ -35,13 +35,13 @@ def centro_de_massa_dos_solidos(solidos: List[Solido]) -> ndarray:
 
 
 # Sólidos da questão 2
-solidos = list()
-solidos.append(cubo)
-solidos.append(piramideBaseQuadrada)
-solidos.append(paralelepipedo)
-solidos.append(troncoPiramide)
+# solidos = list()
+# solidos.append(cubo)
+# solidos.append(piramideBaseQuadrada)
+# solidos.append(paralelepipedo)
+# solidos.append(troncoPiramide)
 
-# ponto médio dos sólidos
+# Ponto médio dos sólidos da questão 2
 cm_solidos = centro_de_massa_dos_solidos(solidos)
 
 # Foi escolhido o octante V (+, +, -)
@@ -82,8 +82,7 @@ V = R * T
 
 # Debug - Distância entre o vértice V1 do cubo e a origem da câmera (eye)
 primero_vertice_cubo = cubo.vertices["V1"]
-print("Tamanho do vetor diferença entre o vértice V1 do cubo e a origem da câmera (eye): {}".format(
-    np.linalg.norm(primero_vertice_cubo - origem_camera)))
+distancia_antes_da_transformacao = np.linalg.norm(primero_vertice_cubo - origem_camera)
 
 # Multiplicação dos sólidos pela matriz V, agora todos os sólidos estão no SCC
 cubo.multiplicacao_por_matriz(V)
@@ -91,12 +90,9 @@ piramideBaseQuadrada.multiplicacao_por_matriz(V)
 paralelepipedo.multiplicacao_por_matriz(V)
 troncoPiramide.multiplicacao_por_matriz(V)
 
-plota_solidos(solidos, titulo="Sólidos no SCC", tem_volume_visao=True)
-
 # Debug - Distância entre o vértice V1 do cubo e o origem das coordenadas do SCC (0, 0, 0)
 primero_vertice_cubo = cubo.vertices["V1"]
-print("Tamanho do vetor diferença entre o vértice V1 do cubo e a origem das coordenadas do SCC (0, 0, 0): {}".format(
-    np.linalg.norm(primero_vertice_cubo)))
+distancia_depois_da_transformacao = np.linalg.norm(primero_vertice_cubo)
 
 # Debug pra ver a posição dos vetores no espaço
 # fig = plt.figure(constrained_layout=True)
@@ -117,3 +113,11 @@ print("Tamanho do vetor diferença entre o vértice V1 do cubo e a origem das co
 # m_origem = m_origem.transpose()
 #
 # print(V*m_origem)
+
+if __name__ == '__main__':
+    plota_solidos(solidos, titulo="Sólidos no SCC", tem_volume_visao=True)
+    print("Tamanho do vetor diferença entre o vértice V1 do cubo e a origem da câmera (eye): {}".format(
+        distancia_antes_da_transformacao))
+    print(
+        "Tamanho do vetor diferença entre o vértice V1 do cubo e a origem das coordenadas do SCC (0, 0, 0): {}".format(
+            distancia_depois_da_transformacao))
