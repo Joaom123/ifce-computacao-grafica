@@ -48,9 +48,9 @@ def plota_eixos(ax) -> None:
     :param ax: Subplot
     :return: None
     """
-    ax.plot([40, -40], [0, 0], [0, 0], color='black', linestyle='dashed')
-    ax.plot([0, 0], [40, -40], [0, 0], color='black', linestyle='dashed')
-    ax.plot([0, 0], [0, 0], [40, -40], color='black', linestyle='dashed')
+    ax.plot([40, -40], [0, 0], [0, 0], color='black', linestyle='dashed', linewidth=1)
+    ax.plot([0, 0], [40, -40], [0, 0], color='black', linestyle='dashed', linewidth=1)
+    ax.plot([0, 0], [0, 0], [40, -40], color='black', linestyle='dashed', linewidth=1)
 
 
 def plota_solido(solido: Solido, com_arestas=True, com_pontos=False, com_eixos=True) -> None:
@@ -83,9 +83,11 @@ def plota_solido(solido: Solido, com_arestas=True, com_pontos=False, com_eixos=T
     ax.set_ylabel('Y')
     ax.set_zlabel('Z')
 
-    ax.set_xlim(-5, 5)
-    ax.set_ylim(-5, 5)
-    ax.set_zlim(-5, 5)
+    ax.set_xlim(-4, 4)
+    ax.set_ylim(-4, 4)
+    ax.set_zlim(-4, 4)
+
+    # ax.view_init(120, 30)
 
     plt.savefig("images/" + nome_imagem + ".png")
     plt.show()
