@@ -30,7 +30,7 @@ if __name__ == '__main__':
     ax.set_title("Projeção nos eixos x e y dos sólidos")
     ax.set_xlabel('X')
     ax.set_ylabel('Y')
-    # ax.set_xlim(-6, 6)
+    ax.set_xlim(0, 6)
     ax.set_ylim(-6, 0)
     for solido in solidos:
         # Plotando vértices

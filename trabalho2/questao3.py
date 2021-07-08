@@ -52,7 +52,7 @@ origem_camera = np.array([5, 4, -1])
 n = (cm_solidos - origem_camera)
 n_norm = np.sqrt(sum(n ** 2))
 
-up = np.array([0, 0, 1])  # vetor up, que indica a direção a ser usada como direção vertical da imagem
+up = np.array([0, 1, 0])  # vetor up, que indica a direção a ser usada como direção vertical da imagem
 
 v = up - (np.dot(up, n) / n_norm ** 2) * n
 
