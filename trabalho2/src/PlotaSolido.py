@@ -83,9 +83,9 @@ def plota_solido(solido: Solido, com_arestas=True, com_pontos=False, com_eixos=T
     ax.set_ylabel('Y')
     ax.set_zlabel('Z')
 
-    ax.set_xlim(-4, 4)
-    ax.set_ylim(-4, 4)
-    ax.set_zlim(-4, 4)
+    ax.set_xlim(-5, 5)
+    ax.set_ylim(-5, 5)
+    ax.set_zlim(-5, 5)
 
     # ax.view_init(120, 30)
 
